@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pay Role Management</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>Pay Role Management</h1>
+      <p class="subtitle">Calculate change and minimum number of notes</p>
+    </header>
+
+    <section class="card form-card">
+      <form id="payment-form" novalidate>
+        <div class="form-row">
+          <label for="bill-amount">Bill Amount (₹)</label>
+          <input type="number" id="bill-amount" min="0" step="1" placeholder="Enter bill amount" required />
+        </div>
+
+        <div class="form-row">
+          <label for="paid-amount">Paid Amount (₹)</label>
+          <input type="number" id="paid-amount" min="0" step="1" placeholder="Enter paid amount" required />
+        </div>
+
+        <div class="actions">
+          <button type="submit" id="calculate-btn">Calculate Change</button>
+          <button type="button" id="reset-btn">Reset</button>
+        </div>
+
+        <p id="message" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="card result-card" id="result-section" aria-hidden="true">
+      <h2>Change to Return: <span id="change-amount">₹0</span></h2>
+
+      <table id="notes-table">
+        <thead>
+          <tr>
+            <th>Denomination (₹)</th>
+            <th>Count</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- rows will be injected here -->
+        </tbody>
+      </table>
+    </section>
+
+    <footer class="footer">
+      <p>Made for Rixi Lab — Pay Role Management Project</p>
+    </footer>
+  </main>
+
+  <script src="project.js"></script>
+</body>
+</html>
